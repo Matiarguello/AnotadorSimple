@@ -1,0 +1,452 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand');
+
+.all{
+	background: #74ebd5;  
+	background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);  
+	background: linear-gradient(to right, #ACB6E5, #74ebd5); 
+	margin: 23px;
+	border-radius: 34px;
+	padding: 40px;
+	overflow: hidden;
+}
+
+body
+{
+	background-color: rgb(241, 241, 241);
+}
+
+
+
+
+.title
+{
+	color:rgb(255, 255, 255);
+	font-family: 'Quicksand', Arial;
+	font-size: 40px;
+}
+
+.container-page
+{
+	display:flex;
+	flex-wrap: wrap; 
+	margin: 10px;	
+}
+.container-title
+{
+	background-color: rgba(70, 69, 69, 0.158);
+	padding: 2%;
+	border-radius: 10px;
+	width: 50%;
+	height: 50%;
+	margin-left: 25%;
+	display: grid;
+	place-items: center;
+}
+
+/* =========================================================
+* [ Contenedor para agregar notas ]
+=============================================================*/
+
+.container-form
+{
+	background-color: rgba(70, 69, 69, 0.158);
+	padding: 15px;
+	border-radius: 10px;
+	width: 300px;
+	/* height: 500px; */
+	height: max-content;
+	display: grid;
+	place-items: center;
+	margin-top: 20px;
+}
+
+.input
+{
+	border-radius: 3%;
+	border: 0px;
+	height: 20px;
+	width: 230px;
+	/* border: 0px solid; */
+	padding: 12px;
+	margin-left: 4%;
+	margin-top: 9%;
+
+	font-family: 'Quicksand', Arial;
+	font-size: 20px;
+
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.bodyinput
+{
+	height: 250px;
+	width: 230px;
+	max-width: 230px;
+}
+
+/* Botones */
+
+.add-note
+{
+	border-radius: 10px;
+	background-color: rgb(97, 212, 107);
+	font-size: 15px;
+	padding: 10px;
+	border:0px;
+	color:rgb(241, 241, 240);
+	margin-top: 3%;
+	font-family: 'Quicksand', Arial;
+	cursor: pointer;
+	-webkit-box-shadow: 5px 5px 5px -6px rgba(0,0,0,0.15);
+	-moz-box-shadow: 5px 5px 5px -6px rgba(0,0,0,0.15);
+	box-shadow: 5px 5px 5px -6px rgba(0,0,0,0.15);		
+}
+
+textarea {
+  resize: none;
+}
+
+textarea:focus, input:focus
+{
+    outline: none;
+}
+
+
+button:hover{
+  animation: pulse; 
+  animation-duration: 800ms; 
+  --animate-delay: 0.5s;
+}
+
+
+/* =========================================================
+* [ Notas ]
+=============================================================*/
+
+.container-cards
+{
+	display:flex;
+	flex-wrap: wrap; 
+	margin: 20px;
+	padding: 30px;
+	max-width: 60%;
+	background-color: rgba(70, 69, 69, 0.158);
+	border-radius: 10px;
+	height: max-content;
+	max-height: auto;
+}
+
+.card
+{
+	background-color: #f0f07d;
+
+	width: 200px;
+	height: 200px;
+	max-width: 200px;
+	max-height: 200px;
+	
+	border: 10px;
+	border-color: #222324;
+	border-radius: 5px;
+	margin: 10px;
+	
+	color:rgb(14, 13, 13);
+	font-family: 'Quicksand', Arial;
+	font-size: 20px;
+
+	-webkit-box-shadow: 12px 12px 5px -6px rgba(0,0,0,0.23);
+	-moz-box-shadow: 12px 12px 5px -6px rgba(0,0,0,0.23);
+	box-shadow: 12px 12px 5px -6px rgba(0,0,0,0.23);	
+
+	display: grid;
+	grid-template-columns: 180px 30px;
+	gap:5px;
+	padding: 15px;
+
+	overflow:hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.icon-close, .icon-preview, .big-icon-close
+{
+	transform: translate(0px, -8px);
+	opacity: 0.2;
+	transition: opacity 0.3s ease-out 60ms;
+	grid-column: 2 / 2;
+}
+
+.icon-close:hover, .icon-preview:hover,.big-icon-close:hover
+{
+	opacity: 1;
+	cursor: pointer;
+}
+
+
+.icon-preview{
+	transform: translate(0px, 150px);
+}
+
+.delete{
+	background-color: rgb(231, 137, 137);
+}
+
+
+.cardtitle
+{
+	text-align: center;
+	overflow:hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+  	grid-column: 1 / 1;
+	height: 23px;
+	max-height: 23px;
+	font-size: 18px;
+}
+
+
+.separator
+{
+	display: inline;
+	grid-column: 3 / 1;
+	background-color: #e692144f;
+	
+	width: 195px;
+	height: 5px;
+	border-radius: 13px;
+	transform: translate(0px, 4px);
+}
+
+
+.bodycard{
+	
+	width: 165px;
+	max-width: 165px;
+	min-width: 165px;
+	min-height: 165px;
+	text-align: center;
+	padding: 20px;
+
+
+	overflow: hidden;
+	text-overflow: ellipsis;
+
+}
+
+/* =========================================================
+* 			[ Nota grande visualización  ]
+=============================================================*/
+
+.black-background
+{
+	background-color: rgba(39, 38, 38, 0.479);
+
+	border-radius: 34px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(11.4px);
+	-webkit-backdrop-filter: blur(11.4px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+
+	position: absolute;
+	z-index: 1;
+
+	margin-left: 22px;
+
+  --animate-duration: 500ms;
+  --animate-delay: 0.1s;
+
+}
+
+.bigcard
+{
+	background-color: #f0f07d;
+	width: 500px;
+	height: 600px;
+
+	border: 10px;
+	border-color: #222324;
+	border-radius: 5px;
+	
+	color:rgb(14, 13, 13);
+	font-family: 'Quicksand', Arial;
+	font-size: 20px;
+	padding: 20px;
+
+	-webkit-box-shadow: 12px 12px 5px -6px rgba(0,0,0,0.23);
+	-moz-box-shadow: 12px 12px 5px -6px rgba(0,0,0,0.23);
+	box-shadow: 12px 12px 5px -6px rgba(0,0,0,0.23);
+
+ 	position: sticky; top: 10%; left: 30%;
+	z-index: 2;
+
+	overflow: auto;
+	text-overflow: ellipsis;
+}	
+
+.bigcard-container
+{
+}
+
+.big-cardtitle
+{
+	font-size: 25px;
+	text-align: center;
+}
+
+.big-icon-close
+{
+	width: 30px;
+	height: 30px;
+	/* margin-right: auto; */
+	transform: translate(0px, 1px);
+	position: sticky; top: 1%; left: 1px;
+}
+
+.big-separator
+{
+	background-color: #e692144f;
+	
+	width: 395px;
+	height: 10px;
+	border-radius: 13px;
+	transform: translate(50px, 4px);
+}
+
+.big-bodycard
+{
+	margin:30px;
+	overflow: auto;
+}
+
+
+
+/* =========================================================
+* 			[ No hay notas ]
+=============================================================*/
+
+.nonotes
+{
+	color:rgb(241, 235, 235);
+	font-family: 'Quicksand', Arial;
+	font-size: 40px;
+	padding: 70px;
+	visibility:hidden;
+}
+
+/* =========================================================
+* 			[ Dialogo de eliminación]
+=============================================================*/
+
+.deletecard{
+	background-color: rgb(240, 241, 241);
+
+	-webkit-box-shadow: 12px 12px 5px -6px rgba(0,0,0,0.23);
+	-moz-box-shadow: 12px 12px 5px -6px rgba(0,0,0,0.23);
+	box-shadow: 12px 12px 5px -6px rgba(0,0,0,0.23);
+
+	width: 500px;
+	height: 400px;
+
+ 	position: sticky; top: 10%; left: 33%;
+	z-index: 2;
+	border-radius: 8px;
+
+	color:black;
+
+	flex-direction: column;
+	/* flex-wrap: wrap; */
+	align-content: center;
+	align-items: center;
+	padding:50px;
+
+	font-family: 'Quicksand', Arial;
+	font-size: 20px;
+	display: none;
+}
+
+.deletecard img{
+	margin-bottom: 10px;
+}
+
+.conservar{
+	border-radius: 10px;
+	background-color: rgb(97, 212, 107);
+	font-size: 15px;
+	padding: 10px;
+	border:0px;
+	color:rgb(241, 241, 240);
+	margin-top: 3%;
+	font-family: 'Quicksand', Arial;
+	cursor: pointer;
+	-webkit-box-shadow: 5px 5px 5px -6px rgba(0,0,0,0.15);
+	-moz-box-shadow: 5px 5px 5px -6px rgba(0,0,0,0.15);
+	box-shadow: 5px 5px 5px -6px rgba(0,0,0,0.15);	
+}
+
+.eliminarTodo{
+
+}
+
+/* =========================================================
+* 			[ Scrolls ]
+=============================================================*/
+
+.scroll_card::-webkit-scrollbar{
+    width: 12px;
+    background-color: #4e504c1a;
+}
+.scroll_card::-webkit-scrollbar-track{
+    border-radius: 3px;
+    background-color: #c5bfbf;
+}
+.scroll_card::-webkit-scrollbar-thumb{
+    border-radius: 3px;
+    background-color: #edd35c;
+	-webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.363);
+}
+
+.bodyinput::-webkit-scrollbar{
+    width: 12px;
+    background-color: #d6dad3;
+}
+.bodyinput::-webkit-scrollbar-track{
+    border-radius: 3px;
+    background-color: #dfdbdb;
+}
+.bodyinput::-webkit-scrollbar-thumb{
+    border-radius: 3px;
+    background-color: #c7c6c4;
+	-webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.212);
+}
+
+/* =========================================================
+* 			[ Footer ]
+=============================================================*/
+
+.divisor{
+	height: 2px;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.37);
+}
+
+footer{
+	margin: 23px;
+	border-radius: 34px;
+	padding: 30px;
+
+	color:rgb(255, 255, 255);
+	font-family: 'Quicksand', Arial;
+	font-size: 17px;
+	
+}
+
+a{
+	color:rgb(255, 255, 255);
+}
+
+a:visited{
+	color:rrgb(209, 202, 202)
+}

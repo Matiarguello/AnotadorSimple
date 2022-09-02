@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<!-- Creado por Matias Argüello -->
+<!-- https://github.com/MatiasEsf/AnotadorSimple -->
+
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+
+		<title>Anotador</title>
+
+		<link rel="icon" type="image/x-icon" href="static/fav_icon.ico" />
+
+		<link rel="stylesheet" href="static/style.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+		/>
+
+		<!--  [ ICONOS DE https://ionic.io/ ]-->
+		<script
+			type="module"
+			src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+		></script>
+
+	</head>
+
+	<body>
+
+		<div
+			class="black-background"
+			id="idblack-background"
+			style="visibility: hidden"
+		>
+			<div class="deletecard" id="iddeletecard">
+				<h2>¿Desea eliminar todas las notas?</h2>
+				<img src="static/warning.png">
+				<button class="add-note delete" onclick="DeleteAll()">Si, eliminar todo</button>
+				<button class="add-note" onclick="CloseDialog()" >No, conservar notas</button>
+			</div>	
+
+			<div class="bigcard scroll_card" id="idbigcard">
+				<ion-icon
+					name="close-outline"
+					class="big-icon-close"
+					onclick="CloseNote(this)"
+				></ion-icon>
+
+				<div class="big-cardtitle" id="id-big-cardtitle"></div>
+
+				<div class="big-separator"></div>
+
+				<div class="big-bodycard scroll_card" id="id-big-bodycard"></div>
+			</div>
+
+		
+
+			</div>
+		</div>
+
+		<div class="all" id="all">
+			<div class="container-title">
+				<div class="title">Anotador Simple</div>
+			</div>
+
+			<!-- contenedor de la página -->
+
+			<div class="container-page">
+				<div class="container-form">
+					<input
+						type="text"
+						class="input titleinput"
+						id="inputtitle"
+						placeholder="Título"
+					/>
+					<textarea
+						name="textarea"
+						rows="10"
+						cols="30"
+						class="input bodyinput"
+						placeholder="Escriba algo..."
+						id="inputbody"
+					></textarea>
+					<button type="button" class="add-note" onclick="AddCard()">
+						Agregar Nota
+					</button>
+					<button
+						type="button"
+						class="add-note delete"
+						style="visibility: hidden"
+						id="iddelete"
+						onclick="ShowDeleteAll()"
+					>
+						Borrar Todo
+					</button>
+				</div>
+
+				<div class="container-cards" id="container_cards">
+					<div
+						class="nonotes"
+						id="no_notes"
+						style="visibility: visible"
+					>
+						No hay notas
+					</div>
+				</div>
+			</div>
+
+			<footer>
+				<div class="divisor"></div>
+				<p>Anotador creado por Matias Argüello (2022)</p>
+				<ion-icon name="terminal-outline"></ion-icon> <a href="https://github.com/MatiasEsf/" target="_blank" >Mi perfil de github</a>
+				 <br>
+				<ion-icon name="mail-outline"></ion-icon> MatiasArguello09@gmail.com 
+			</footer>
+		</div>
+
+		<script src="js/addcard.js"></script>
+	</body>
+</html>
