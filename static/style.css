@@ -168,7 +168,7 @@ button:hover{
 
 	overflow:hidden;
 	text-overflow: ellipsis;
-	white-space: nowrap;
+	/* white-space: wrap; */
 }
 
 .icon-close, .icon-preview, .big-icon-close
