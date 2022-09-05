@@ -44,7 +44,7 @@
 				<ion-icon
 					name="close-outline"
 					class="big-icon-close"
-					onclick="CloseNote(this)"
+					onclick="CloseNote()"
 				></ion-icon>
 
 				<div class="big-cardtitle" id="id-big-cardtitle"></div>
@@ -82,6 +82,14 @@
 						placeholder="Escriba algo..."
 						id="inputbody"
 					></textarea>
+
+					<div class="colorselector">  		
+						<div class="colordiv colorselected" style="background-color:rgb(240,240,125);" id="0" onclick="SelectColor(this)"></div>
+						<div class="colordiv" style="background-color:rgb(245, 156, 156);" id="1" onclick="SelectColor(this)" ></div>
+						<div class="colordiv" style="background-color:rgb(137, 178, 231);" id="2" onclick="SelectColor(this)"></div>
+						<div class="colordiv" style="background-color:rgb(137, 231, 137);" id="3" onclick="SelectColor(this)"></div>
+					</div>
+
 					<button type="button" class="add-note" onclick="AddCard()">
 						Agregar Nota
 					</button>

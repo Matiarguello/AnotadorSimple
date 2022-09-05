@@ -3,6 +3,15 @@
 =========================================*/
 
 let Notes = [];
+let ColorSelected = 0;
+
+let Colors = 
+[
+	"240,240,125",
+	"245, 156, 156",
+	"137, 178, 231",
+	"137, 231, 137"
+]
 
 /* ===========================================
 * [ Cargamos Las notas al cargar la página ]
@@ -34,7 +43,7 @@ function AddCard() {
 	NoNotesShow(false);
 
 	let idCard = Date.now();
-	divcard.innerHTML += CreateCard(idCard);
+	divcard.innerHTML += CreateCard(idCard, ColorSelected );
 
 	LoadDataSafe(idCard, textTitle, textBody);
 
@@ -42,6 +51,7 @@ function AddCard() {
 		id: idCard,
 		title: textTitle,
 		body: textBody,
+		color: ColorSelected
 	});
 
 	// * Remover la animación
@@ -116,9 +126,9 @@ function DeleteAll() {
 * [ Crear una nota mediante los argumentos recibidos ]
 =============================================================*/
 
-const CreateCard = (id) => {
+const CreateCard = ( id, color = 0 ) => {
 	return `
-	<div class="card animate__bounceIn animate__fast" id="${id}" name=${id}>
+	<div class="card animate__bounceIn animate__fast" id="${id}" name=${id} style="background-color: rgb(${Colors[ color ]});">
 		<div class="cardtitle" id="titlecard${id}"></div>
 		<ion-icon name="close-outline" align="right" class="icon-close" onclick="DeleteNote(this)" id="${id}"></ion-icon>
 		<div class="separator"></div>
@@ -153,7 +163,7 @@ const LoadNotes = () => {
 		Notes.forEach((element) => {
 			let id = element.id;
 
-			divcard.innerHTML += CreateCard(id);
+			divcard.innerHTML += CreateCard(id, element.color );
 			LoadDataSafe(id, element.title, element.body);
 			document.getElementById(id).className = "card";
 		});
@@ -171,12 +181,13 @@ const LoadNotes = () => {
 function NoteFullScreen(e) {
 	let id = e.id;
 
-	let title, body;
+	let title, body, color = 0;
 
 	for (let i = 0; i < Notes.length; i++) {
 		if (Notes[i].id == id) {
-			title = Notes[i].title;
-			body = Notes[i].body;
+			title = Notes[ i ].title;
+			body = Notes[ i ].body;
+			color = Notes[ i ].color;
 			break;
 		}
 	}
@@ -191,13 +202,14 @@ function NoteFullScreen(e) {
 
 	bigCardTitle.innerText = title;
 	bigCardBody.innerText = body;
+	bigCard.style.backgroundColor = `rgb(${Colors[ color ]})`
 }
 
 /* ================================================================
 * [ Cerrar la nota ampliada ]
 ===================================================================*/
 
-function CloseNote(e) {
+function CloseNote() {
 	ShowBlackBackground(false);
 
 	let bigCard = document.getElementById("idbigcard");
@@ -258,23 +270,51 @@ function CloseDialog() {
 ===================================================================*/
 
 const ShowBlackBackground = (visible = true) => {
-	let background = document.getElementsByClassName("black-background");
 
-	if (visible) {
+	let background = document.getElementById("idblack-background")
+
+	if ( visible ) {
 		let All = document.getElementById("all");
-		background[0].style.visibility = "visible";
-		background[0].style.width = All.offsetWidth.toString() + "px";
-		background[0].style.height = All.offsetHeight.toString() + "px";
-		background[0].classList.add("animate__animated");
-		background[0].classList.add("animate__fadeIn");
+
+		background.style.visibility = "visible";
+		background.style.width = All.offsetWidth.toString() + "px";
+		background.style.height = All.offsetHeight.toString() + "px";
+
+		background.classList.add("animate__animated");
+		background.classList.add("animate__fadeIn");
 	} else {
-		background[0].classList.remove("animate__fadeIn");
-		background[0].classList.add("animate__fadeOut");
+		background.classList.remove("animate__fadeIn");
+		background.classList.add("animate__fadeOut");
 
 		setTimeout(() => {
-			background[0].classList.remove("animate__animated");
-			background[0].classList.remove("animate__fadeOut");
-			background[0].style.visibility = "hidden";
+			background.classList.remove("animate__animated");
+			background.classList.remove("animate__fadeOut");
+			background.style.visibility = "hidden";
 		}, 800);
 	}
 };
+
+
+/* ================================================================
+* [ Mostrar fondo ]
+===================================================================*/
+
+function reportWindowSize() {
+	let All = document.getElementById("all");
+	let background = document.getElementById("idblack-background")
+	background.style.width = All.offsetWidth.toString() + "px";
+	background.style.height = All.offsetHeight.toString() + "px";
+}
+
+window.onresize = reportWindowSize;
+
+/* ================================================================
+* [ Seleccionar Color]
+===================================================================*/
+
+function SelectColor( e ){
+	colors = document.getElementsByClassName("colorselected")
+	colors[0].classList.remove("colorselected")
+	e.classList.add("colorselected");
+	ColorSelected = parseInt( e.id );
+}

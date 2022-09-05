@@ -2,6 +2,10 @@
 /* @import url('https://fonts.googleapis.com/css2?family=DynaPuff&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand');
 
+html{
+	font-family: 'Quicksand', Arial
+}
+
 .all{
 	background: #74ebd5;  
 	background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);  
@@ -18,12 +22,9 @@ body
 }
 
 
-
-
 .title
 {
 	color:rgb(255, 255, 255);
-	font-family: 'Quicksand', Arial;
 	font-size: 40px;
 }
 
@@ -36,7 +37,7 @@ body
 .container-title
 {
 	background-color: rgba(70, 69, 69, 0.158);
-	padding: 2%;
+	padding: 10px;
 	border-radius: 10px;
 	width: 50%;
 	height: 50%;
@@ -55,11 +56,11 @@ body
 	padding: 15px;
 	border-radius: 10px;
 	width: 300px;
-	/* height: 500px; */
 	height: max-content;
 	display: grid;
 	place-items: center;
 	margin-top: 20px;
+	max-width: max-content;
 }
 
 .input
@@ -82,7 +83,7 @@ body
 
 .bodyinput
 {
-	height: 250px;
+	height: 190px;
 	width: 230px;
 	max-width: 230px;
 }
@@ -130,18 +131,21 @@ button:hover{
 {
 	display:flex;
 	flex-wrap: wrap; 
-	margin: 20px;
-	padding: 30px;
-	max-width: 60%;
+
+	margin: 10px;
+	padding: 20px;
+
 	background-color: rgba(70, 69, 69, 0.158);
 	border-radius: 10px;
-	height: max-content;
-	max-height: auto;
+	height: auto;
+	max-width: 60%;
+
+	overflow:hidden;
 }
 
 .card
 {
-	background-color: #f0f07d;
+	/* background-color: #f0f07d; */
 
 	width: 200px;
 	height: 200px;
@@ -168,7 +172,6 @@ button:hover{
 
 	overflow:hidden;
 	text-overflow: ellipsis;
-	/* white-space: wrap; */
 }
 
 .icon-close, .icon-preview, .big-icon-close
@@ -212,7 +215,8 @@ button:hover{
 {
 	display: inline;
 	grid-column: 3 / 1;
-	background-color: #e692144f;
+	background-color: rgba(122, 122, 122, 0.158);
+	/* background-color: #e692144f; */
 	
 	width: 195px;
 	height: 5px;
@@ -279,8 +283,13 @@ button:hover{
 	-moz-box-shadow: 12px 12px 5px -6px rgba(0,0,0,0.23);
 	box-shadow: 12px 12px 5px -6px rgba(0,0,0,0.23);
 
- 	position: sticky; top: 10%; left: 30%;
+ 	position: sticky; 
 	z-index: 2;
+
+	margin:0px auto;
+	left: 1%;
+	top:20%;
+	translate: 0px -100px;
 
 	overflow: auto;
 	text-overflow: ellipsis;
@@ -307,8 +316,8 @@ button:hover{
 
 .big-separator
 {
-	background-color: #e692144f;
-	
+	/* background-color: #e692144f; */
+	background-color: rgba(122, 122, 122, 0.158);
 	width: 395px;
 	height: 10px;
 	border-radius: 13px;
@@ -350,14 +359,18 @@ button:hover{
 	width: 500px;
 	height: 400px;
 
- 	position: sticky; top: 10%; left: 33%;
+ 	position: sticky;
+	margin:0px auto;
+	left: 1%;
+	top:20%;
+	translate: 0px -100px;
+
 	z-index: 2;
 	border-radius: 8px;
 
 	color:black;
 
 	flex-direction: column;
-	/* flex-wrap: wrap; */
 	align-content: center;
 	align-items: center;
 	padding:50px;
@@ -449,4 +462,48 @@ a{
 
 a:visited{
 	color:rrgb(209, 202, 202)
+}
+
+/* =========================================================
+* 			[ Selector de color ]
+=============================================================*/
+
+.colorselector{
+	background-color: rgba(0, 0, 0, 0.068);
+	border-radius: 5px;
+	margin: 10px;
+	padding: 10px;
+	width: auto;
+	height: 15px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.colordiv{
+	border-radius: 5px;
+	width: 20px;
+	height: 20px;
+	margin: 10px;
+	border-width: 2px;
+	/* border-style: solid; */
+	border-color: rgba(255, 255, 255, 0.233);
+	transition: 200ms;	
+}
+
+.colordiv:hover{
+	animation: pulse; 
+	animation-duration: 1500ms; 
+	--animate-delay: 0.5s;
+	cursor: pointer;
+
+	border-width: 3px;
+	border-style: solid;
+	border-color: rgba(255, 255, 255, 0.541);
+}
+
+.colorselected{
+	border-width: 3px;
+	border-style: solid;
+	border-color: rgba(255, 255, 255, 0.541);	
 }
