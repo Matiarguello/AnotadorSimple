@@ -1,0 +1,7 @@
+{
+	"noborder": "-stretchaspecthaspect -nofbo -nomsaa -noborder -nojoy -noforcemaccel -noforcemparms -noforcemspd -dxlevel 90",
+	"fullscreen": "-full",
+	"width": "-w 1024",
+	"height": "-h 768",
+	"console": "+toggleconsole"
+}
