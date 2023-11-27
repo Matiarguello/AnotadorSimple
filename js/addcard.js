@@ -106,16 +106,26 @@ function DeleteAll() {
 	let AllNotes = document.querySelectorAll(".card");
 
 	if (AllNotes != null) {
-		for (notes of AllNotes) {
-			notes.classList.add("animate__animated", "animate__bounceOutLeft");
+
+		if( Notes.length < 15 )
+		{
+			for (notes of AllNotes) {
+				notes.classList.add("animate__animated", "animate__bounceOutLeft");
+			}
+
+			setTimeout(() => {
+				for (notes of AllNotes) {
+					notes.remove();
+					NoNotesShow(true);
+				}
+			}, 500);
 		}
 
-		setTimeout(() => {
-			for (notes of AllNotes) {
-				notes.remove();
-				NoNotesShow(true);
-			}
-		}, 500);
+		else{
+			AllNotes.forEach( note => note.remove())
+			NoNotesShow(true);
+		}
+
 	}
 
 	Notes = [];
@@ -226,10 +236,10 @@ const NoNotesShow = (show = true) => {
 
 	if (show == true) {
 		noNotesDiv.style.display = "inline";
-		deleteAllButton.style.visibility = "hidden";
+		deleteAllButton.style.display = "none";
 	} else {
 		noNotesDiv.style.display = "none";
-		deleteAllButton.style.visibility = "visible";
+		deleteAllButton.style.display = "block";
 	}
 };
 
@@ -276,7 +286,7 @@ const ShowBlackBackground = (visible = true) => {
 	if ( visible ) {
 		let All = document.getElementById("all");
 
-		background.style.visibility = "visible";
+		background.style.display = "block";
 		background.style.width = All.offsetWidth.toString() + "px";
 		background.style.height = All.offsetHeight.toString() + "px";
 
@@ -289,7 +299,7 @@ const ShowBlackBackground = (visible = true) => {
 		setTimeout(() => {
 			background.classList.remove("animate__animated");
 			background.classList.remove("animate__fadeOut");
-			background.style.visibility = "hidden";
+			background.style.display = "none";
 		}, 800);
 	}
 };

@@ -5,10 +5,11 @@
 
 <html lang="es">
 	<head>
-		<meta charset="UTF-8" />
 
+		<!-- <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1"/> -->
 		<title>Anotador</title>
-
+		<meta charset="UTF-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="icon" type="image/x-icon" href="static/fav_icon.ico" />
 
 		<link rel="stylesheet" href="static/style.css" />
@@ -31,14 +32,14 @@
 		<div
 			class="black-background"
 			id="idblack-background"
-			style="visibility: hidden"
+			style="display: none"
 		>
-			<div class="deletecard" id="iddeletecard">
-				<h2>¿Desea eliminar todas las notas?</h2>
-				<img src="static/warning.png">
-				<button class="add-note delete" onclick="DeleteAll()">Si, eliminar todo</button>
-				<button class="add-note" onclick="CloseDialog()" >No, conservar notas</button>
-			</div>	
+				<div class="deletecard" id="iddeletecard">
+					<center><h2>¿Desea eliminar todas las notas?</h2></center>
+					<img src="static/warning.png">
+					<button class="add-note delete" onclick="DeleteAll()">Si, eliminar todo</button>
+					<button class="add-note" onclick="CloseDialog()" >No, conservar notas</button>
+				</div>	
 
 			<div class="bigcard scroll_card" id="idbigcard">
 				<ion-icon
@@ -60,8 +61,10 @@
 		</div>
 
 		<div class="all" id="all">
+
+		
 			<div class="container-title">
-				<div class="title">Anotador Simple</div>
+				<center><div class="title">Anotador Simple</div></center>
 			</div>
 
 			<!-- contenedor de la página -->
@@ -96,7 +99,7 @@
 					<button
 						type="button"
 						class="add-note delete"
-						style="visibility: hidden"
+						style="display: none"
 						id="iddelete"
 						onclick="ShowDeleteAll()"
 					>
@@ -105,13 +108,15 @@
 				</div>
 
 				<div class="container-cards" id="container_cards">
+					<center>
 					<div
 						class="nonotes"
 						id="no_notes"
-						style="visibility: visible"
-					>
+						style="visibility: visible">
+					
 						No hay notas
 					</div>
+					</center>
 				</div>
 			</div>
 
@@ -125,5 +130,14 @@
 		</div>
 
 		<script src="js/addcard.js"></script>
+
+		<script>
+		document.addEventListener('keydown', function(event) {
+			if (event.key === 'Escape') {
+			// Aquí puedes colocar el código que deseas ejecutar cuando se presiona la tecla "Esc"
+				CloseDialog()
+			}
+		});
+		</script>		
 	</body>
 </html>
