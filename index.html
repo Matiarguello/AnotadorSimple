@@ -36,7 +36,7 @@
 		>
 				<div class="deletecard" id="iddeletecard">
 					<center><h2>¿Desea eliminar todas las notas?</h2></center>
-					<img src="static/warning.png">
+					<img src="static/warning.webp">
 					<button class="add-note delete" onclick="DeleteAll()">Si, eliminar todo</button>
 					<button class="add-note" onclick="CloseDialog()" >No, conservar notas</button>
 				</div>	
@@ -126,9 +126,10 @@
 			<footer>
 				<div class="divisor"></div>
 				<p>Anotador creado por Matias Argüello (2022)</p>
-				<ion-icon name="terminal-outline"></ion-icon> <a href="https://github.com/MatiasEsf/" target="_blank" >Mi perfil de github</a>
+				<ion-icon name="logo-github"></ion-icon> <a href="https://github.com/MatiArguello" target="_blank" >Mi perfil de github</a>
 				 <br>
-				<ion-icon name="mail-outline"></ion-icon> MatiasArguello09@gmail.com 
+				<ion-icon name="mail-outline"></ion-icon> <a href="mailto:MatiasArguello09@gmail.com ">Mi correo electrónico</a>
+
 			</footer>
 		</div>
 
@@ -137,8 +138,7 @@
 		<script>
 		document.addEventListener('keydown', function(event) {
 			if (event.key === 'Escape') {
-			// Aquí puedes colocar el código que deseas ejecutar cuando se presiona la tecla "Esc"
-				CloseDialog()
+				CloseDialog();
 			}
 		});
 

@@ -77,6 +77,8 @@ function AddCard() {
 function DeleteNote(e) {
 	let id = e.id;
 
+	if( !id ) return;
+
 	let elements = document.getElementsByName(id);
 
 	for (let i = 0; i < Notes.length; i++) {
@@ -93,7 +95,7 @@ function DeleteNote(e) {
 	setTimeout(() => {
 		elements[0].remove();
 		Notes.length == 0 && NoNotesShow(true);
-	}, 360);
+	}, 260);
 }
 
 /* =========================================================
@@ -194,6 +196,8 @@ const LoadNotes = () => {
 function NoteFullScreen(e) {
 	let id = e.id;
 
+	if( !id ) return;
+
 	let title, body, color = 0;
 
 	for (let i = 0; i < Notes.length; i++) {
@@ -204,6 +208,8 @@ function NoteFullScreen(e) {
 			break;
 		}
 	}
+
+	if( !title || !body || body == 'undefined' ) return;
 
 	ShowBlackBackground(true);
 
