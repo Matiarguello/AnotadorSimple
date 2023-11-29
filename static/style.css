@@ -634,5 +634,10 @@ a:visited {
 	}
 	.big-separator {
 		transform: translate(0px, 0px);
-	}	
+	}
+	
+	:focus {
+		outline: none;
+	}
+	
 }
