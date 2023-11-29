@@ -2,9 +2,9 @@
 
 ## Una página para crear recordatorios/notas
 
-[Ir a la página](https://matiasesf.github.io/AnotadorSimple/)
+[Ir a la página](https://matiarguello.github.io/AnotadorSimple/)
 
-![preview](https://github.com/MatiasEsf/AnotadorSimple/blob/master/preview.PNG)
+![preview](https://github.com/MatiArguello/AnotadorSimple/blob/master/preview.PNG)
 
 Es un html estático solamente, se maneja con javascript y mediante el localStorage se almacenan
 todas las notas creadas.
