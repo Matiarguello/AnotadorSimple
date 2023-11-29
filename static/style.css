@@ -4,16 +4,41 @@
 
 html {
 	font-family: "Quicksand", Arial;
+	padding: 20px;
 }
 
 .all {
 	background: #74ebd5;
 	background: -webkit-linear-gradient(to right, #acb6e5, #74ebd5);
 	background: linear-gradient(to right, #acb6e5, #74ebd5);
-	margin: 23px;
 	border-radius: 34px;
 	padding: 40px;
 	overflow: hidden;
+	width: auto;
+	height: auto;
+	position: sticky;
+}
+
+.black-background {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(39, 38, 38, 0.479);
+
+	border-radius: 34px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(11.4px);
+	-webkit-backdrop-filter: blur(11.4px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+
+	position: absolute;
+	z-index: 2;
+
+	--animate-duration: 500ms;
+	--animate-delay: 0.1s;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;	
 }
 
 body {
@@ -87,13 +112,14 @@ body {
 
 .add-note {
 	border-radius: 10px;
-	background-color: rgb(97, 212, 107);
-	font-size: 15px;
 	padding: 10px;
 	border: 0px;
+	font-size: 15px;
+	background-color: rgb(97, 212, 107);
 	color: rgb(241, 241, 240);
-	margin-top: 3%;
 	font-family: "Quicksand", Arial;
+	margin-top: 3%;
+
 	cursor: pointer;
 	-webkit-box-shadow: 5px 5px 5px -6px rgba(0, 0, 0, 0.15);
 	-moz-box-shadow: 5px 5px 5px -6px rgba(0, 0, 0, 0.15);
@@ -130,7 +156,8 @@ button:hover {
 	border-radius: 10px;
 	overflow: auto;
 	/* min-width: min-content; */
-	justify-content: center; /* Centra horizontalmente */
+	justify-content: center;
+	/* justify-content: center;  */
 	align-items: center;
 	/* width: auto; */
 	/* min-width: fit-content; */
@@ -229,30 +256,7 @@ button:hover {
 * 			[ Nota grande visualización  ]
 =============================================================*/
 
-.black-background {
-	width: 100%;
-	background-color: rgba(39, 38, 38, 0.479);
 
-	border-radius: 34px;
-	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(11.4px);
-	-webkit-backdrop-filter: blur(11.4px);
-	border: 1px solid rgba(255, 255, 255, 0.3);
-
-	position: absolute;
-	z-index: 2;
-
-	/* margin: 23px; */
-	/* border-radius: 34px; */
-	/* padding: 40px; */
-
-	--animate-duration: 500ms;
-	--animate-delay: 0.1s;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
 
 .bigcard {
 	background-color: #f0f07d;
@@ -303,12 +307,15 @@ button:hover {
 }
 
 .big-separator {
-	/* background-color: #e692144f; */
+
 	background-color: rgba(122, 122, 122, 0.158);
-	width: 395px;
+	border-radius: 13px;
+	transform: translate(0px, 10px);
+
+	width: 100%;
 	height: 10px;
 	border-radius: 13px;
-	transform: translate(50px, 4px);
+
 }
 
 .big-bodycard {
@@ -492,7 +499,31 @@ a:visited {
 * 			[ Responsive ]
 =============================================================*/
 
+/* El boton de expandir */
+.expand-form{
+	display: none;
+	scale: 1.2;
+	border-radius: 10px;
+	padding: 10px;
+	border: 0px;
+	font-size: 15px;
+	background-color: rgb(97, 212, 107);
+	color: rgb(241, 241, 240);
+	font-family: "Quicksand", Arial;
+	margin-top: 3%;
+
+	cursor: pointer;
+	-webkit-box-shadow: 5px 5px 5px -6px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 5px 5px 5px -6px rgba(0, 0, 0, 0.15);
+	box-shadow: 5px 5px 5px -6px rgba(0, 0, 0, 0.15);
+}
+
+
 @media (max-width: 700px) {
+	
+	html{
+		padding: 0px;
+	}
 	.container-title {
 		width: auto;
 		height: auto;
@@ -506,20 +537,23 @@ a:visited {
 	}
 
 	.all {
-		margin: 5px;
 		border-radius: 34px;
 		padding: 10px;
 		overflow: hidden;
 	}
 
 	.container-form{
-		/* place-items: inherit; */
-		display: flex;
-		flex-wrap: wrap;
+		display: none;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		overflow: hidden;
 		padding: 20px;
+		width: 390px;		
+	}
+
+	.container-form .input{
+		width: 90%;
 	}
 
 	.container-page {
@@ -529,7 +563,6 @@ a:visited {
 		justify-content: center;
 		align-items: center;
 		margin: 10px;
-		padding: 20px;
 		overflow: hidden;
 	}
 
@@ -549,9 +582,6 @@ a:visited {
 		font-size: 20px;
 	}
 	.bigcard-container{
-		width: 291px;
-	}
-	.bigcard{
 		width: 291px;
 	}
 
@@ -577,4 +607,28 @@ a:visited {
 		width: 50%;
 		height: 50%;
 	}
+	.expand-form{
+		display: block;
+	}
+
+
+	.bigcard {
+
+		width: 87%;
+		height: 400px;
+		min-height: 500px;
+
+		border: 10px;
+		border-radius: 20px;
+
+		overflow: auto;
+		text-overflow: ellipsis;
+	}
+
+	.big-bodycard{
+		width: 210px;
+	}
+	.big-separator {
+		transform: translate(0px, 0px);
+	}	
 }

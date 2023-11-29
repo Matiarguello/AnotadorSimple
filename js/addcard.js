@@ -12,6 +12,9 @@ let Colors =
 	"137, 178, 231",
 	"137, 231, 137"
 ]
+let formularioExpandido = false;
+const divForm = document.getElementById('container_form');
+const buttonExpand = document.getElementById('expand_button');
 
 /* ===========================================
 * [ Cargamos Las notas al cargar la página ]
@@ -143,7 +146,7 @@ const CreateCard = ( id, color = 0 ) => {
 		<ion-icon name="close-outline" align="right" class="icon-close" onclick="DeleteNote(this)" id="${id}"></ion-icon>
 		<div class="separator"></div>
 		<div class="bodycard" id="bodycard${id}"></div>
-		<ion-icon class="icon-preview" name="reorder-four-outline" onclick="NoteFullScreen(this)" id="${id}" ></ion-icon>		
+		<ion-icon class="icon-preview" name="open-outline" onclick="NoteFullScreen(this)" id="${id}" ></ion-icon>		
 	</div>`;
 };
 
@@ -327,4 +330,25 @@ function SelectColor( e ){
 	colors[0].classList.remove("colorselected")
 	e.classList.add("colorselected");
 	ColorSelected = parseInt( e.id );
+}
+
+/* ================================================================
+* [ Función de expandir el formulario - version movil ]
+===================================================================*/
+
+
+function ExpandForm(){
+	
+	if (!formularioExpandido) {
+		buttonExpand.innerHTML = '<ion-icon name="chevron-up-outline"></ion-icon>'
+		formularioExpandido = true;
+		divForm.style.display = 'flex'	
+	} 
+	
+	else {
+		buttonExpand.innerHTML = '<ion-icon name="chevron-down-outline"></ion-icon> Agregar Notas'
+		divForm.style.display = 'none'
+		formularioExpandido = false;
+	}		
+
 }
